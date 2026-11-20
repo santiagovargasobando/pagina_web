@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Después de Napoleón</title>
+<style>
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #222;
+  background: #fff;
+}
+a { color: #052962; }
+
+header.menu {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #0b1b33;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+}
+.menu .logo { color: white; font-weight: bold; padding: 15px 0; }
+.menu nav { display: flex; overflow-x: auto; }
+.menu nav a {
+  color: #c9d3e6;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 16px 12px;
+  white-space: nowrap;
+}
+.menu nav a:hover { color: white; }
+
+.portada {
+  background: #0b1b33;
+  color: white;
+  padding: 90px 20px 70px 20px;
+}
+.portada div { max-width: 800px; margin: 0 auto; }
+.portada small { font-family: Arial, sans-serif; color: #ffb3b3; font-weight: bold; }
+.portada h1 {
+  font-size: 54px;
+  line-height: 1.1;
+  margin: 15px 0 25px 0;
+}
+.pregunta {
+  border-left: 4px solid #c70000;
+  padding-left: 15px;
+  font-size: 21px;
+  max-width: 650px;
+}
+.integrantes { font-family: Arial, sans-serif; font-size: 15px; color: #b8c4da; }
+.boton {
+  display: inline-block;
+  background: #c70000;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+main { max-width: 740px; margin: 0 auto; padding: 0 20px; }
+section { padding: 50px 0 20px 0; border-bottom: 1px solid #ddd; }
+h2 { color: #052962; font-size: 32px; line-height: 1.2; margin-bottom: 8px; }
+.quien { font-family: Arial, sans-serif; font-size: 14px; color: #666; margin-top: 0; }
+
+.clip {
+  background: #0b1b33;
+  margin: 25px -20px;
+  position: relative;
+}
+.clip video { width: 100%; display: block; }
+.clip .aviso {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  color: #b8c4da;
+  font-family: Arial, sans-serif;
+  pointer-events: none;
+}
+.clip p { margin: 0; padding: 8px 15px; color: #b8c4da; font: 13px Arial, sans-serif; }
+
+blockquote {
+  border-left: 4px solid #c70000;
+  margin: 30px 0;
+  padding-left: 18px;
+  font-size: 23px;
+  font-weight: bold;
+}
+blockquote span { display: block; font: normal 14px Arial, sans-serif; color: #666; margin-top: 6px; }
+
+.contexto { background: #f4f4f1; padding: 15px 22px; margin: 30px 0; }
+.caja { border: 1px solid #ccc; padding: 18px 22px; margin: 30px 0; font-family: Arial, sans-serif; }
+.caja h3 { margin: 0 0 10px 0; font-size: 17px; }
+.caja p { font-family: Georgia, serif; font-size: 17px; margin-bottom: 0; }
+.fuentes-capitulo { font: 14px Arial, sans-serif; color: #666; }
+
+.botones { display: flex; flex-wrap: wrap; gap: 8px; }
+.botones button {
+  font: bold 14px Arial, sans-serif;
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  background: #f4f4f1;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.botones button.activo { background: #052962; color: white; border-color: #052962; }
+
+.eventos { list-style: none; padding: 0; margin: 15px 0 0 0; font-family: Georgia, serif; font-size: 17px; }
+.eventos li { padding: 8px 0; border-top: 1px solid #e5e5e5; }
+.eventos b { color: #c70000; font-family: Arial, sans-serif; margin-right: 8px; }
+.comparar { margin: 15px 0 0 0; font-family: Georgia, serif; font-size: 17px; }
+.comparar dt { font: bold 13px Arial, sans-serif; color: #c70000; text-transform: uppercase; margin-top: 12px; }
+.comparar dd { margin: 2px 0 0 0; }
+.red-caja { overflow-x: auto; margin: 25px 0; }
+#red { min-width: 640px; width: 100%; }
+#red text { font: 12px Arial, sans-serif; text-anchor: middle; fill: #222; }
+#red .titulo-col { font-weight: bold; font-size: 13px; fill: #555; }
+#red rect { fill: #f4f4f1; stroke: #052962; stroke-width: 2; }
+#red .nodo { cursor: pointer; }
+#red .nodo.encendido rect { fill: #052962; }
+#red .nodo.encendido text { fill: white; }
+#red .nodo.apagado { opacity: 0.3; }
+#red line { stroke: #ccc; stroke-width: 2; }
+#red line.encendida { stroke: #c70000; stroke-width: 3; }
+
+.conclusion { background: #0b1b33; color: white; padding: 50px 20px; margin-top: 40px; }
+.conclusion div { max-width: 740px; margin: 0 auto; }
+.conclusion h2 { color: white; }
+.fuentes-final { max-width: 740px; margin: 0 auto; padding: 40px 20px 10px 20px; font-family: Arial, sans-serif; font-size: 15px; }
+#buscador { width: 100%; padding: 10px 14px; font-size: 15px; border: 1px solid #ccc; border-radius: 20px; margin-bottom: 12px; box-sizing: border-box; }
+#lista-fuentes li { margin-bottom: 10px; }
+#contador-fuentes { color: #666; font-size: 13px; }
+.menu nav a.actual { color: white; border-bottom: 3px solid #c70000; }
+#subir { position: fixed; right: 20px; bottom: 20px; background: #c70000; color: white; border: 0; border-radius: 50%; width: 44px; height: 44px; font-size: 20px; cursor: pointer; display: none; }
+footer { text-align: center; font: 13px Arial, sans-serif; color: #666; padding: 25px; }
+
+@media (max-width: 600px) {
+  .portada h1 { font-size: 36px; }
+  h2 { font-size: 26px; }
+  .menu .logo { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="menu">
+  <span class="logo">Historia Conectada</span>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#contexto">Contexto histórico</a>
+    <a href="#red-seccion">Red de relaciones</a>
+    <a href="#viena">Video</a>
+    <a href="#explorador">Explorador</a>
+    <a href="#conclusion">Conclusiones</a>
+    <a href="#fuentes">Fuentes</a>
+  </nav>
+</header>
+
+<div class="portada" id="inicio">
+  <div>
+    <small>Documental interactivo · Siglo XIX</small>
+    <h1>Después de Napoleón: cómo Europa no volvió al pasado</h1>
+    <p class="pregunta"><b>Pregunta central:</b> ¿Cómo cambiaron la Revolución Industrial, las utopías sociales, el Romanticismo y el nacionalismo el orden político que dejó la caída de Napoleón?</p>
+    <p class="integrantes"><b>Integrantes:</b> [Nombre 1], [Nombre 2], [Nombre 3] y [Nombre 4] · Universidad Católica San Pablo</p>
+    <a class="boton" href="#contexto">Empezar</a>
+  </div>
+</div>
+
+<main>
+
+  <section id="contexto">
+    <h2>Contexto histórico</h2>
+    <p>En 1815 las potencias europeas derrotaron a Napoleón y se sentaron a reconstruir el continente como si la Revolución Francesa no hubiera ocurrido. Pero las fábricas, las ideas sociales, la sensibilidad romántica y el deseo de ser nación ya estaban en marcha.</p>
+    <p><b>El problema que estudiamos:</b> el período va de 1815 a 1871, y nos preguntamos por qué el intento de restaurar el orden anterior fracasó.</p>
+    <p>Primero verás una red que conecta causas, actores, acontecimientos y consecuencias. Después, una entrevista en cinco clips, cada uno con su contexto, fuentes y un recurso para explorar.</p>
+  </section>
+
+  <section id="red-seccion">
+    <h2>Red de relaciones históricas</h2>
+    <p>Toca un elemento para ver con qué se conecta y cómo se explica.</p>
+    <div class="red-caja">
+      <svg id="red" viewBox="0 0 720 400"></svg>
+    </div>
+    <div class="caja">
+      <h3 id="red-titulo">Selecciona un elemento</h3>
+      <p id="red-texto">Cada columna es un paso de la explicación: causas, actores, acontecimientos y consecuencias.</p>
+    </div>
+  </section>
+
+  <section id="viena">
+    <h2>¿Qué buscaban las potencias en el Congreso de Viena?</h2>
+    <p class="quien">Responde [Nombre 2], historiador político</p>
+
+    <div class="clip">
+      <video controls preload="metadata"><source src="clips/clip1.mp4" type="video/mp4"></video>
+      <div class="aviso"><b>Clip 1</b><br>Guarda tu video como clips/clip1.mp4</div>
+      <p>Clip 1 · Metternich y la Restauración</p>
+    </div>
+
+    <p>Las potencias buscaban estabilidad: devolver el trono a las dinastías, contener a Francia y evitar nuevas revoluciones. Metternich, desde Austria, fue la figura central, y la Santa Alianza sirvió para que las monarquías se apoyaran entre sí.</p>
+    <blockquote>El orden de 1815 ignoraba dos cosas: el liberalismo y el deseo de los pueblos de decidir su destino.<span>[Nombre 2], en el clip 1</span></blockquote>
+
+    <div class="contexto">
+      <h3>Contexto</h3>
+      <p>El Congreso de Viena se celebró entre 1814 y 1815. Las revoluciones de 1820, 1830 y 1848 mostraron lo frágil que era su sistema.</p>
+    </div>
+
+    <div class="fuentes-capitulo"><b>Fuentes</b>
+      <ul>
+        <li>Hobsbawm, E. (2009). <i>La era de la revolución, 1789-1848</i>.</li>
+        <li><i>Acta Final del Congreso de Viena</i> (1815).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="industrial">
+    <h2>¿Qué cambió con la Revolución Industrial y a qué costo?</h2>
+    <p class="quien">Responde [Nombre 3], historiador socioeconómico</p>
+
+    <div class="clip">
+      <video controls preload="metadata"><source src="clips/clip2.mp4" type="video/mp4"></video>
+      <div class="aviso"><b>Clip 2</b><br>Guarda tu video como clips/clip2.mp4</div>
+      <p>Clip 2 · Vapor, fábricas y proletariado</p>
+    </div>
+
+    <p>Cambió la forma de producir: la máquina de vapor, los telares mecánicos y las fábricas reemplazaron al taller artesanal. Crecieron las ciudades y nacieron una clase obrera y una burguesía industrial con peso propio.</p>
+    <p>El costo humano fue enorme: jornadas largas, trabajo infantil y hacinamiento. De ahí salieron protestas, sindicatos y movimientos como el ludismo.</p>
+
+    <div class="contexto">
+      <h3>Contexto</h3>
+      <p>Gran Bretaña fue el primer país industrializado. Esa presión social no se resolvía con diplomacia, y por eso el orden de Viena no podía controlarla.</p>
+    </div>
+
+    <div class="fuentes-capitulo"><b>Fuentes</b>
+      <ul><li>Hobsbawm, E. (2009). <i>La era de la revolución, 1789-1848</i>.</li><li>Encyclopædia Britannica: <i>Industrial Revolution</i>.</li></ul>
+    </div>
+  </section>
+
+  <section id="utopias">
+    <h2>¿Qué sociedades imaginaron quienes querían algo distinto?</h2>
+    <p class="quien">Responde [Nombre 3], historiador socioeconómico</p>
+
+    <div class="clip">
+      <video controls preload="metadata"><source src="clips/clip3.mp4" type="video/mp4"></video>
+      <div class="aviso"><b>Clip 3</b><br>Guarda tu video como clips/clip3.mp4</div>
+      <p>Clip 3 · Owen, Saint-Simon y Fourier</p>
+    </div>
+
+    <p>Frente a la desigualdad surgieron las utopías sociales. Más tarde Marx y Engels las llamaron “utópicas” porque no explicaban cómo cambiar la estructura económica, pero pusieron la cuestión social en el debate público.</p>
+
+    <div class="fuentes-capitulo"><b>Fuentes</b>
+      <ul>
+        <li>Engels, F. (1880). <i>Del socialismo utópico al socialismo científico</i>.</li>
+        <li>Filosofía.net: <i>El socialismo utópico</i>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="romanticismo">
+    <h2>¿Cómo nacieron las naciones modernas?</h2>
+    <p class="quien">Responde [Nombre 4], historiador cultural</p>
+
+    <div class="clip">
+      <video controls preload="metadata"><source src="clips/clip4.mp4" type="video/mp4"></video>
+      <div class="aviso"><b>Clip 4</b><br>Guarda tu video como clips/clip4.mp4</div>
+      <p>Clip 4 · Romanticismo y nacionalismo</p>
+    </div>
+
+    <p>El Romanticismo fue una reacción frente al racionalismo y la industrialización. Valoró el sentimiento, la naturaleza y el pasado propio. Los románticos exaltaron la lengua y el folclore de cada pueblo, y de ahí nació la idea de que cada pueblo debía tener su Estado.</p>
+    <blockquote>El nacionalismo fue el mayor desafío para una Europa de imperios multiétnicos.<span>[Nombre 2], en el clip 4</span></blockquote>
+
+    <div class="fuentes-capitulo"><b>Fuentes</b>
+      <ul>
+        <li>Berlin, I. (2000). <i>Las raíces del romanticismo</i>.</li>
+        <li>Osterhammel, J. (2015). <i>La transformación del mundo</i>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="explorador">
+    <h2>Explorador cronológico y comparador de corrientes</h2>
+    <p>Filtra los acontecimientos por tema o elige una corriente para comparar sus ideas.</p>
+
+    <div class="caja">
+      <h3>1. Línea de tiempo (1814-1848)</h3>
+      <div class="botones" id="filtros-tiempo"></div>
+      <ul class="eventos" id="lista-eventos"></ul>
+    </div>
+
+    <div class="caja">
+      <h3>2. Comparador de corrientes</h3>
+      <div class="botones" id="botones-corrientes"></div>
+      <dl class="comparar" id="datos-corriente"></dl>
+    </div>
+  </section>
+
+</main>
+
+<div class="conclusion" id="conclusion">
+  <div>
+    <h2>Conclusiones: el mundo posnapoleónico no volvió al pasado</h2>
+    <p><i>Respuesta del equipo a la pregunta central:</i> el orden de 1815 fue desafiado desde tres frentes a la vez.</p>
+    <ol>
+      <li><b>El orden frente a los pueblos.</b> La diplomacia de Viena evitó grandes guerras entre potencias, pero dejó de lado los deseos de libertad y de identidad de muchos pueblos.</li>
+      <li><b>Tres respuestas a una doble crisis.</b> Frente a las injusticias de la industrialización surgieron las utopías sociales; frente a la frialdad de la máquina, el Romanticismo; y frente a las fronteras de Viena, el nacionalismo.</li>
+      <li><b>Un legado que llega hasta hoy.</b> Aunque las revoluciones de 1848 fueron reprimidas, dejaron instalados los derechos laborales, la participación ciudadana y el Estado-nación.</li>
+    </ol>
+    <p>Entre fábricas, ideas y naciones, Europa entró en una era de cambio permanente.</p>
+  </div>
+</div>
+
+<div class="fuentes-final" id="fuentes">
+  <h2>Fuentes</h2>
+  <p>Libros, documentos históricos y recursos en línea consultados para el proyecto.</p>
+  <input type="text" id="buscador" placeholder="Buscar una fuente...">
+  <div class="botones" id="filtros-fuentes"></div>
+  <p id="contador-fuentes"></p>
+  <ul id="lista-fuentes"></ul>
+</div>
+
+<button id="subir" title="Volver arriba">↑</button>
+
+<footer>Proyecto de Historia · UCSP · Videos y textos originales del equipo</footer>
+
+<script>
+var eventos = [
+  { anio: "1814-1815", tema: "viena", texto: "Congreso de Viena: las potencias redibujan el mapa y buscan el equilibrio." },
+  { anio: "1815", tema: "viena", texto: "Se forma la Santa Alianza entre las monarquías conservadoras." },
+  { anio: "1819", tema: "industria", texto: "Masacre de Peterloo en Manchester: la caballería ataca una protesta que pedía reformas." },
+  { anio: "1820", tema: "viena", texto: "Revoluciones liberales en España, Nápoles y Portugal." },
+  { anio: "1821", tema: "naciones", texto: "Comienza la guerra de independencia de Grecia." },
+  { anio: "1825", tema: "industria", texto: "Robert Owen funda la comunidad de New Harmony en Estados Unidos." },
+  { anio: "1830", tema: "naciones", texto: "Revolución de julio en Francia e independencia de Bélgica." },
+  { anio: "1831", tema: "naciones", texto: "Mazzini funda la Joven Italia." },
+  { anio: "1832", tema: "industria", texto: "Reforma electoral en Gran Bretaña, impulsada por el peso de la burguesía industrial." },
+  { anio: "1848", tema: "naciones", texto: "Primavera de los Pueblos: revoluciones liberales y nacionales en toda Europa." }
+];
+
+var filtros = [
+  { nombre: "Todos", valor: "todos" },
+  { nombre: "Orden de Viena", valor: "viena" },
+  { nombre: "Industria y utopías", valor: "industria" },
+  { nombre: "Romanticismo y nacionalismo", valor: "naciones" }
+];
+
+var corrientes = [
+  {
+    nombre: "Romanticismo",
+    responde: "Al racionalismo ilustrado y a la mecanización de la vida.",
+    impulsores: "Goethe, Byron, Beethoven, Delacroix.",
+    aporte: "Valoró la emoción, la naturaleza, la libertad del individuo y las tradiciones populares."
+  },
+  {
+    nombre: "Nacionalismo",
+    responde: "A las fronteras de Viena, que dividían a unos pueblos y sometían a otros.",
+    impulsores: "Herder, Mazzini.",
+    aporte: "Hizo de la identidad cultural una exigencia política y llevó a las unificaciones de Italia y Alemania."
+  },
+  {
+    nombre: "Utopías sociales",
+    responde: "A la desigualdad y las duras condiciones de trabajo de la industrialización.",
+    impulsores: "Owen, Saint-Simon, Fourier.",
+    aporte: "Pusieron la cuestión social en el debate público y abrieron el camino al cooperativismo y al socialismo."
+  }
+];
+
+function pintarEventos(tema) {
+  var lista = document.getElementById("lista-eventos");
+  lista.innerHTML = "";
+  for (var i = 0; i < eventos.length; i++) {
+    if (tema == "todos" || eventos[i].tema == tema) {
+      var li = document.createElement("li");
+      li.innerHTML = "<b>" + eventos[i].anio + "</b>" + eventos[i].texto;
+      lista.appendChild(li);
+    }
+  }
+}
+
+var contFiltros = document.getElementById("filtros-tiempo");
+for (var i = 0; i < filtros.length; i++) {
+  var bf = document.createElement("button");
+  bf.innerText = filtros[i].nombre;
+  bf.onclick = (function (n) {
+    return function () {
+      var todos = contFiltros.getElementsByTagName("button");
+      for (var j = 0; j < todos.length; j++) {
+        todos[j].className = (j == n) ? "activo" : "";
+      }
+      pintarEventos(filtros[n].valor);
+    };
+  })(i);
+  contFiltros.appendChild(bf);
+}
+contFiltros.getElementsByTagName("button")[0].onclick();
+
+function mostrarCorriente(n) {
+  var c = corrientes[n];
+  var botones = document.getElementById("botones-corrientes").getElementsByTagName("button");
+  for (var j = 0; j < botones.length; j++) {
+    botones[j].className = (j == n) ? "activo" : "";
+  }
+  document.getElementById("datos-corriente").innerHTML =
+    "<dt>A qué respondía</dt><dd>" + c.responde + "</dd>" +
+    "<dt>Quiénes la impulsaron</dt><dd>" + c.impulsores + "</dd>" +
+    "<dt>Su aporte</dt><dd>" + c.aporte + "</dd>";
+}
+
+var contCorrientes = document.getElementById("botones-corrientes");
+for (var i = 0; i < corrientes.length; i++) {
+  var bc = document.createElement("button");
+  bc.innerText = corrientes[i].nombre;
+  bc.onclick = (function (n) {
+    return function () { mostrarCorriente(n); };
+  })(i);
+  contCorrientes.appendChild(bc);
+}
+mostrarCorriente(0);
+
+var videos = document.getElementsByTagName("video");
+for (var v = 0; v < videos.length; v++) {
+  videos[v].onloadedmetadata = function () {
+    this.parentNode.querySelector(".aviso").style.display = "none";
+  };
+}
+
+var columnas = ["Causas", "Actores", "Acontecimientos", "Consecuencias"];
+
+var nodos = [
+  { id: "c1", col: 0, fila: 0, linea1: "Caída de Napoleón", linea2: "y miedo a revoluciones", texto: "Tras años de guerra, las potencias querían evitar que se repitiera una revolución como la francesa." },
+  { id: "c2", col: 0, fila: 1, linea1: "Ideas liberales", linea2: "de la Rev. Francesa", texto: "Libertad, igualdad y derechos habían calado en la burguesía y en parte del pueblo." },
+  { id: "c3", col: 0, fila: 2, linea1: "Industrialización", linea2: "y desigualdad", texto: "Las fábricas crearon riqueza y también pobreza urbana, trabajo infantil y jornadas largas." },
+  { id: "a1", col: 1, fila: 0, linea1: "Metternich y", linea2: "las potencias", texto: "Austria, Rusia, Prusia y Gran Bretaña buscaban estabilidad y monarquías fuertes." },
+  { id: "a2", col: 1, fila: 1, linea1: "Burguesía", linea2: "y obreros", texto: "La burguesía pedía derechos políticos y los obreros mejores condiciones de vida." },
+  { id: "a3", col: 1, fila: 2, linea1: "Románticos", linea2: "y utopistas", texto: "Escritores, artistas y pensadores como Herder, Owen o Fourier propusieron nuevas ideas de pueblo y de sociedad." },
+  { id: "e1", col: 2, fila: 0, linea1: "Congreso de Viena", linea2: "(1814-1815)", texto: "Se redibujó el mapa de Europa y nació la Santa Alianza." },
+  { id: "e2", col: 2, fila: 1, linea1: "Revoluciones de", linea2: "1820, 1830 y 1848", texto: "Oleadas de revueltas liberales y nacionales sacudieron el sistema de Viena." },
+  { id: "e3", col: 2, fila: 2, linea1: "Unificación de", linea2: "Italia y Alemania", texto: "Italia hacia 1861 y Alemania en 1871 mostraron la fuerza del nacionalismo." },
+  { id: "s1", col: 3, fila: 0, linea1: "Fin del equilibrio", linea2: "conservador", texto: "El orden de 1815 perdió su capacidad de frenar el cambio." },
+  { id: "s2", col: 3, fila: 1, linea1: "Movimiento obrero", linea2: "y socialismo", texto: "La cuestión social llegó al debate político y dio origen a sindicatos y partidos obreros." },
+  { id: "s3", col: 3, fila: 2, linea1: "Estados-nación", linea2: "modernos", texto: "La idea de que cada pueblo tiene derecho a su Estado reorganizó el mapa europeo." }
+];
+
+var conexiones = [
+  ["c1", "a1"], ["c2", "a2"], ["c2", "a3"], ["c3", "a2"], ["c3", "a3"],
+  ["a1", "e1"], ["a2", "e2"], ["a3", "e2"], ["a3", "e3"],
+  ["e1", "s1"], ["e2", "s1"], ["e2", "s2"], ["e3", "s3"]
+];
+
+var svg = document.getElementById("red");
+var ns = "http://www.w3.org/2000/svg";
+var ancho = 150;
+var alto = 54;
+
+function centroX(n) { return 20 + n.col * 180 + ancho / 2; }
+function centroY(n) { return 50 + n.fila * 115 + alto / 2; }
+function buscar(id) {
+  for (var i = 0; i < nodos.length; i++) {
+    if (nodos[i].id == id) return nodos[i];
+  }
+}
+
+for (var i = 0; i < columnas.length; i++) {
+  var t = document.createElementNS(ns, "text");
+  t.setAttribute("class", "titulo-col");
+  t.setAttribute("x", 20 + i * 180 + ancho / 2);
+  t.setAttribute("y", 24);
+  t.textContent = columnas[i];
+  svg.appendChild(t);
+}
+
+var lineasSvg = [];
+for (var i = 0; i < conexiones.length; i++) {
+  var n1 = buscar(conexiones[i][0]);
+  var n2 = buscar(conexiones[i][1]);
+  var l = document.createElementNS(ns, "line");
+  l.setAttribute("x1", centroX(n1) + ancho / 2);
+  l.setAttribute("y1", centroY(n1));
+  l.setAttribute("x2", centroX(n2) - ancho / 2);
+  l.setAttribute("y2", centroY(n2));
+  svg.appendChild(l);
+  lineasSvg.push(l);
+}
+
+var cajas = {};
+for (var i = 0; i < nodos.length; i++) {
+  var n = nodos[i];
+  var g = document.createElementNS(ns, "g");
+  g.setAttribute("class", "nodo");
+
+  var r = document.createElementNS(ns, "rect");
+  r.setAttribute("x", centroX(n) - ancho / 2);
+  r.setAttribute("y", centroY(n) - alto / 2);
+  r.setAttribute("width", ancho);
+  r.setAttribute("height", alto);
+  r.setAttribute("rx", 6);
+  g.appendChild(r);
+
+  var t1 = document.createElementNS(ns, "text");
+  t1.setAttribute("x", centroX(n));
+  t1.setAttribute("y", centroY(n) - 4);
+  t1.textContent = n.linea1;
+  g.appendChild(t1);
+
+  var t2 = document.createElementNS(ns, "text");
+  t2.setAttribute("x", centroX(n));
+  t2.setAttribute("y", centroY(n) + 12);
+  t2.textContent = n.linea2;
+  g.appendChild(t2);
+
+  g.onclick = (function (id) {
+    return function () { elegirNodo(id); };
+  })(n.id);
+
+  svg.appendChild(g);
+  cajas[n.id] = g;
+}
+
+function agregarHaciaAdelante(id, lista) {
+  for (var i = 0; i < conexiones.length; i++) {
+    if (conexiones[i][0] == id && lista.indexOf(conexiones[i][1]) == -1) {
+      lista.push(conexiones[i][1]);
+      agregarHaciaAdelante(conexiones[i][1], lista);
+    }
+  }
+}
+
+function agregarHaciaAtras(id, lista) {
+  for (var i = 0; i < conexiones.length; i++) {
+    if (conexiones[i][1] == id && lista.indexOf(conexiones[i][0]) == -1) {
+      lista.push(conexiones[i][0]);
+      agregarHaciaAtras(conexiones[i][0], lista);
+    }
+  }
+}
+
+function elegirNodo(id) {
+  var elegidos = [id];
+  agregarHaciaAdelante(id, elegidos);
+  agregarHaciaAtras(id, elegidos);
+
+  for (var k in cajas) {
+    if (elegidos.indexOf(k) != -1) {
+      cajas[k].setAttribute("class", "nodo encendido");
+    } else {
+      cajas[k].setAttribute("class", "nodo apagado");
+    }
+  }
+
+  for (var i = 0; i < conexiones.length; i++) {
+    var dentro = elegidos.indexOf(conexiones[i][0]) != -1 && elegidos.indexOf(conexiones[i][1]) != -1;
+    lineasSvg[i].setAttribute("class", dentro ? "encendida" : "");
+  }
+
+  var nodo = buscar(id);
+  document.getElementById("red-titulo").innerText = nodo.linea1 + " " + nodo.linea2;
+  document.getElementById("red-texto").innerText = nodo.texto;
+}
+
+var fuentes = [
+  { tipo: "libros", texto: "<b>Hobsbawm, E. (2009).</b> <i>La era de la revolución, 1789-1848</i>. Barcelona: Crítica." },
+  { tipo: "libros", texto: "<b>Osterhammel, J. (2015).</b> <i>La transformación del mundo: una historia global del siglo XIX</i>. Barcelona: Crítica." },
+  { tipo: "libros", texto: "<b>Berlin, I. (2000).</b> <i>Las raíces del romanticismo</i>. Madrid: Taurus." },
+  { tipo: "libros", texto: "<b>Engels, F. (1880).</b> <i>Del socialismo utópico al socialismo científico</i>." },
+  { tipo: "documentos", texto: "<b>Documentos históricos primarios:</b> <i>Acta Final del Congreso de Viena</i> (9 de junio de 1815) y <i>Manifiesto de la Joven Italia</i>, de Giuseppe Mazzini (1831)." },
+  { tipo: "linea", texto: "<b>Historia National Geographic:</b> El Congreso de Viena, la reorganización de Europa tras Napoleón.", url: "https://historia.nationalgeographic.com.es/a/congreso-viena-europa-tras-napoleon_18665" },
+  { tipo: "linea", texto: "<b>El Orden Mundial (EOM):</b> El mapa de Europa tras las guerras napoleónicas.", url: "https://elordenmundial.com/mapas-y-graficos/mapa-europa-napoleon/" },
+  { tipo: "linea", texto: "<b>Dialnet (Universidad de La Rioja):</b> artículo académico de investigación histórica (código 5885508).", url: "https://dialnet.unirioja.es/servlet/articulo?codigo=5885508" },
+  { tipo: "linea", texto: "<b>Concepto.de:</b> Revolución Industrial: etapas, causas y consecuencias.", url: "https://concepto.de/revolucion-industrial/" },
+  { tipo: "linea", texto: "<b>National Geographic Latinoamérica (2024):</b> Qué fue y cuándo comenzó la Revolución Industrial.", url: "https://www.nationalgeographicla.com/historia/2024/12/que-fue-y-cuando-comenzo-la-revolucion-industrial" },
+  { tipo: "linea", texto: "<b>Encyclopædia Britannica:</b> Industrial Revolution: The first Industrial Revolution.", url: "https://www.britannica.com/event/Industrial-Revolution/The-first-Industrial-Revolution" },
+  { tipo: "linea", texto: "<b>Filosofía.net:</b> El socialismo utópico (Henri de Saint-Simon, Charles Fourier y Robert Owen).", url: "https://www.filosofia.net/materiales/sofiafilia/hf/soff_u12_1.html" },
+  { tipo: "linea", texto: "<b>History Crunch (2026):</b> Millar, B., Utopian Socialism: A Detailed Summary.", url: "https://historycrunch.com/utopian-socialism/" },
+  { tipo: "linea", texto: "<b>Repositorio Institucional UNAM:</b> Juárez Vargas, J. M., El socialismo utópico: desde la exposición de Friedrich Engels en Del socialismo utópico al socialismo científico.", url: "https://ru.dgb.unam.mx/server/api/core/bitstreams/aa020f5c-3c3b-40d7-bad0-d33a390d3c03/content" },
+  { tipo: "linea", texto: "<b>Scribd:</b> Tema 3: El siglo XIX. Liberalismo, Nacionalismo y Romanticismo.", url: "https://es.scribd.com/document/828664805/TEMA-3-HISTORIA" },
+  { tipo: "linea", texto: "<b>Nueva Escuela Mexicana (SEP):</b> Nacionalismo y Romanticismo en el siglo XIX.", url: "https://nuevaescuelamexicana.sep.gob.mx/contenido/coleccion/nacionalismo-y-romanticismo-2/" },
+  { tipo: "linea", texto: "<b>Fundación Juan March:</b> El Romanticismo y el rescate de la música y cultura popular.", url: "https://www2.march.es/musica/jovenes/raiz-popular-html/romanticismo.html" },
+  { tipo: "linea", texto: "<b>Historia y Biografías:</b> Concepto de nación y el surgimiento del nacionalismo en Europa.", url: "https://historiaybiografias.com/nacion/" }
+];
+
+var tiposFuentes = [
+  { nombre: "Todas", valor: "todas" },
+  { nombre: "Libros", valor: "libros" },
+  { nombre: "Documentos históricos", valor: "documentos" },
+  { nombre: "Recursos en línea", valor: "linea" }
+];
+
+var tipoActual = "todas";
+
+function pintarFuentes() {
+  var lista = document.getElementById("lista-fuentes");
+  var texto = document.getElementById("buscador").value.toLowerCase();
+  var contador = 0;
+  lista.innerHTML = "";
+
+  for (var i = 0; i < fuentes.length; i++) {
+    var f = fuentes[i];
+    var coincideTipo = (tipoActual == "todas" || f.tipo == tipoActual);
+    var coincideTexto = f.texto.toLowerCase().indexOf(texto) != -1;
+    if (coincideTipo && coincideTexto) {
+      var li = document.createElement("li");
+      li.innerHTML = f.texto;
+      if (f.url) {
+        li.innerHTML += ' Disponible en: <a href="' + f.url + '" target="_blank" rel="noopener">' + f.url + '</a>';
+      }
+      lista.appendChild(li);
+      contador++;
+    }
+  }
+  document.getElementById("contador-fuentes").innerText = "Mostrando " + contador + " de " + fuentes.length + " fuentes";
+}
+
+var contTipos = document.getElementById("filtros-fuentes");
+for (var i = 0; i < tiposFuentes.length; i++) {
+  var bt = document.createElement("button");
+  bt.innerText = tiposFuentes[i].nombre;
+  bt.onclick = (function (n) {
+    return function () {
+      var todos = contTipos.getElementsByTagName("button");
+      for (var j = 0; j < todos.length; j++) {
+        todos[j].className = (j == n) ? "activo" : "";
+      }
+      tipoActual = tiposFuentes[n].valor;
+      pintarFuentes();
+    };
+  })(i);
+  contTipos.appendChild(bt);
+}
+contTipos.getElementsByTagName("button")[0].className = "activo";
+document.getElementById("buscador").oninput = pintarFuentes;
+pintarFuentes();
+
+var botonSubir = document.getElementById("subir");
+botonSubir.onclick = function () { window.scrollTo({ top: 0, behavior: "smooth" }); };
+
+var seccionesMenu = ["inicio", "contexto", "red-seccion", "viena", "explorador", "conclusion", "fuentes"];
+var enlacesMenu = document.querySelectorAll(".menu nav a");
+
+window.onscroll = function () {
+  botonSubir.style.display = (window.scrollY > 600) ? "block" : "none";
+
+  var actual = "inicio";
+  for (var i = 0; i < seccionesMenu.length; i++) {
+    var el = document.getElementById(seccionesMenu[i]);
+    if (el && el.getBoundingClientRect().top < 120) {
+      actual = seccionesMenu[i];
+    }
+  }
+  for (var j = 0; j < enlacesMenu.length; j++) {
+    var activo = enlacesMenu[j].getAttribute("href") == "#" + actual;
+    enlacesMenu[j].className = activo ? "actual" : "";
+  }
+};
+</script>
+</body>
+</html>
