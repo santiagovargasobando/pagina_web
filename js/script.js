@@ -374,6 +374,14 @@ var capitulos = [
     respuesta: "El mundo posnapoleónico no volvió al pasado: entre fábricas, ideas y naciones, Europa entró en una era de cambio permanente.",
     contexto: "Las revoluciones de 1848 fueron reprimidas, pero dejaron instalados los derechos laborales, la participación ciudadana y el Estado-nación.",
     fuentes: ["Osterhammel, J. (2015). La transformación del mundo."]
+  },
+  {
+    tiempo: 420,
+    titulo: "Mirada desde América",
+    pregunta: "¿Qué relación tuvo todo esto con América Latina?",
+    respuesta: "Las independencias de 1810 a 1825, incluida la del Perú en 1821, ocurrieron en el mismo mundo de ideas liberales y de crisis de las monarquías. La historia no se queda en un solo continente.",
+    contexto: "La Santa Alianza miró con preocupación esos procesos. En 1823 Estados Unidos formuló la Doctrina Monroe, y Gran Bretaña, ya industrializada, vio en las nuevas repúblicas un mercado.",
+    fuentes: ["Osterhammel, J. (2015). La transformación del mundo.", "Hobsbawm, E. (2009). La era de la revolución, 1789-1848."]
   }
 ];
 
