@@ -160,7 +160,7 @@ footer { text-align: center; font: 13px Arial, sans-serif; color: #666; padding:
     <a href="#inicio">Inicio</a>
     <a href="#contexto">Contexto histórico</a>
     <a href="#red-seccion">Red de relaciones</a>
-    <a href="#viena">Video</a>
+    <a href="#video">Video</a>
     <a href="#explorador">Explorador</a>
     <a href="#conclusion">Conclusiones</a>
     <a href="#fuentes">Fuentes</a>
@@ -183,7 +183,7 @@ footer { text-align: center; font: 13px Arial, sans-serif; color: #666; padding:
     <h2>Contexto histórico</h2>
     <p>En 1815 las potencias europeas derrotaron a Napoleón y se sentaron a reconstruir el continente como si la Revolución Francesa no hubiera ocurrido. Pero las fábricas, las ideas sociales, la sensibilidad romántica y el deseo de ser nación ya estaban en marcha.</p>
     <p><b>El problema que estudiamos:</b> el período va de 1815 a 1871, y nos preguntamos por qué el intento de restaurar el orden anterior fracasó.</p>
-    <p>Primero verás una red que conecta causas, actores, acontecimientos y consecuencias. Después, una entrevista en cinco clips, cada uno con su contexto, fuentes y un recurso para explorar.</p>
+    <p>Primero verás una red que conecta causas, actores, acontecimientos y consecuencias. Después, una entrevista en video con sus capítulos, el contexto y las fuentes de cada tramo, y un explorador para consultar por tu cuenta.</p>
   </section>
 
   <section id="red-seccion">
@@ -198,93 +198,31 @@ footer { text-align: center; font: 13px Arial, sans-serif; color: #666; padding:
     </div>
   </section>
 
-  <section id="viena">
-    <h2>¿Qué buscaban las potencias en el Congreso de Viena?</h2>
-    <p class="quien">Responde [Nombre 2], historiador político</p>
+  <section id="video">
+    <h2>Entrevista: ¿cómo cambió Europa después de Napoleón?</h2>
+    <p class="quien">Conversan [Nombre 1], entrevistador/a, y [Nombre 2], historiador/a invitado/a</p>
 
     <div class="clip">
-      <video controls preload="metadata"><source src="clips/clip1.mp4" type="video/mp4"></video>
-      <div class="aviso"><b>Clip 1</b><br>Guarda tu video como clips/clip1.mp4</div>
-      <p>Clip 1 · Metternich y la Restauración</p>
+      <video id="video-principal" controls preload="metadata"><source src="video/entrevista.mp4" type="video/mp4"></video>
+      <div class="aviso"><b>Video de la entrevista</b><br>Guarda tu video como video/entrevista.mp4</div>
+      <p>Entrevista completa · aprox. 7 minutos</p>
     </div>
 
-    <p>Las potencias buscaban estabilidad: devolver el trono a las dinastías, contener a Francia y evitar nuevas revoluciones. Metternich, desde Austria, fue la figura central, y la Santa Alianza sirvió para que las monarquías se apoyaran entre sí.</p>
-    <blockquote>El orden de 1815 ignoraba dos cosas: el liberalismo y el deseo de los pueblos de decidir su destino.<span>[Nombre 2], en el clip 1</span></blockquote>
+    <div class="botones" id="botones-capitulos"></div>
+
+    <div class="caja">
+      <h3 id="cap-titulo"></h3>
+      <p id="cap-pregunta"></p>
+      <p id="cap-respuesta"></p>
+    </div>
 
     <div class="contexto">
       <h3>Contexto</h3>
-      <p>El Congreso de Viena se celebró entre 1814 y 1815. Las revoluciones de 1820, 1830 y 1848 mostraron lo frágil que era su sistema.</p>
+      <p id="cap-contexto"></p>
     </div>
 
-    <div class="fuentes-capitulo"><b>Fuentes</b>
-      <ul>
-        <li>Hobsbawm, E. (2009). <i>La era de la revolución, 1789-1848</i>.</li>
-        <li><i>Acta Final del Congreso de Viena</i> (1815).</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="industrial">
-    <h2>¿Qué cambió con la Revolución Industrial y a qué costo?</h2>
-    <p class="quien">Responde [Nombre 3], historiador socioeconómico</p>
-
-    <div class="clip">
-      <video controls preload="metadata"><source src="clips/clip2.mp4" type="video/mp4"></video>
-      <div class="aviso"><b>Clip 2</b><br>Guarda tu video como clips/clip2.mp4</div>
-      <p>Clip 2 · Vapor, fábricas y proletariado</p>
-    </div>
-
-    <p>Cambió la forma de producir: la máquina de vapor, los telares mecánicos y las fábricas reemplazaron al taller artesanal. Crecieron las ciudades y nacieron una clase obrera y una burguesía industrial con peso propio.</p>
-    <p>El costo humano fue enorme: jornadas largas, trabajo infantil y hacinamiento. De ahí salieron protestas, sindicatos y movimientos como el ludismo.</p>
-
-    <div class="contexto">
-      <h3>Contexto</h3>
-      <p>Gran Bretaña fue el primer país industrializado. Esa presión social no se resolvía con diplomacia, y por eso el orden de Viena no podía controlarla.</p>
-    </div>
-
-    <div class="fuentes-capitulo"><b>Fuentes</b>
-      <ul><li>Hobsbawm, E. (2009). <i>La era de la revolución, 1789-1848</i>.</li><li>Encyclopædia Britannica: <i>Industrial Revolution</i>.</li></ul>
-    </div>
-  </section>
-
-  <section id="utopias">
-    <h2>¿Qué sociedades imaginaron quienes querían algo distinto?</h2>
-    <p class="quien">Responde [Nombre 3], historiador socioeconómico</p>
-
-    <div class="clip">
-      <video controls preload="metadata"><source src="clips/clip3.mp4" type="video/mp4"></video>
-      <div class="aviso"><b>Clip 3</b><br>Guarda tu video como clips/clip3.mp4</div>
-      <p>Clip 3 · Owen, Saint-Simon y Fourier</p>
-    </div>
-
-    <p>Frente a la desigualdad surgieron las utopías sociales. Más tarde Marx y Engels las llamaron “utópicas” porque no explicaban cómo cambiar la estructura económica, pero pusieron la cuestión social en el debate público.</p>
-
-    <div class="fuentes-capitulo"><b>Fuentes</b>
-      <ul>
-        <li>Engels, F. (1880). <i>Del socialismo utópico al socialismo científico</i>.</li>
-        <li>Filosofía.net: <i>El socialismo utópico</i>.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="romanticismo">
-    <h2>¿Cómo nacieron las naciones modernas?</h2>
-    <p class="quien">Responde [Nombre 4], historiador cultural</p>
-
-    <div class="clip">
-      <video controls preload="metadata"><source src="clips/clip4.mp4" type="video/mp4"></video>
-      <div class="aviso"><b>Clip 4</b><br>Guarda tu video como clips/clip4.mp4</div>
-      <p>Clip 4 · Romanticismo y nacionalismo</p>
-    </div>
-
-    <p>El Romanticismo fue una reacción frente al racionalismo y la industrialización. Valoró el sentimiento, la naturaleza y el pasado propio. Los románticos exaltaron la lengua y el folclore de cada pueblo, y de ahí nació la idea de que cada pueblo debía tener su Estado.</p>
-    <blockquote>El nacionalismo fue el mayor desafío para una Europa de imperios multiétnicos.<span>[Nombre 2], en el clip 4</span></blockquote>
-
-    <div class="fuentes-capitulo"><b>Fuentes</b>
-      <ul>
-        <li>Berlin, I. (2000). <i>Las raíces del romanticismo</i>.</li>
-        <li>Osterhammel, J. (2015). <i>La transformación del mundo</i>.</li>
-      </ul>
+    <div class="fuentes-capitulo"><b>Fuentes de este tramo</b>
+      <ul id="cap-fuentes"></ul>
     </div>
   </section>
 
@@ -331,7 +269,7 @@ footer { text-align: center; font: 13px Arial, sans-serif; color: #666; padding:
 
 <button id="subir" title="Volver arriba">↑</button>
 
-<footer>Proyecto de Historia · UCSP · Videos y textos originales del equipo</footer>
+<footer>Proyecto de Historia · UCSP · Video y textos originales del equipo</footer>
 
 <script>
 var eventos = [
@@ -643,7 +581,7 @@ pintarFuentes();
 var botonSubir = document.getElementById("subir");
 botonSubir.onclick = function () { window.scrollTo({ top: 0, behavior: "smooth" }); };
 
-var seccionesMenu = ["inicio", "contexto", "red-seccion", "viena", "explorador", "conclusion", "fuentes"];
+var seccionesMenu = ["inicio", "contexto", "red-seccion", "video", "explorador", "conclusion", "fuentes"];
 var enlacesMenu = document.querySelectorAll(".menu nav a");
 
 window.onscroll = function () {
@@ -659,6 +597,112 @@ window.onscroll = function () {
   for (var j = 0; j < enlacesMenu.length; j++) {
     var activo = enlacesMenu[j].getAttribute("href") == "#" + actual;
     enlacesMenu[j].className = activo ? "actual" : "";
+  }
+};
+
+var capitulos = [
+  {
+    tiempo: 0,
+    titulo: "Apertura",
+    pregunta: "¿Por qué Europa no pudo volver al pasado en 1815?",
+    respuesta: "Porque mientras las potencias intentaban restaurar el orden anterior, la economía, las ideas y la identidad de los pueblos ya estaban cambiando.",
+    contexto: "Napoleón fue derrotado definitivamente en 1815. Las potencias vencedoras querían evitar que la Revolución Francesa se repitiera.",
+    fuentes: ["Hobsbawm, E. (2009). La era de la revolución, 1789-1848."]
+  },
+  {
+    tiempo: 45,
+    titulo: "El orden de Viena",
+    pregunta: "¿Qué buscaban las potencias en el Congreso de Viena?",
+    respuesta: "Estabilidad: devolver el trono a las dinastías, contener a Francia y evitar nuevas revoluciones. Metternich fue la figura central y la Santa Alianza unió a las monarquías conservadoras.",
+    contexto: "El Congreso se celebró entre 1814 y 1815. Las revoluciones de 1820, 1830 y 1848 mostraron lo frágil que era su sistema.",
+    fuentes: ["Acta Final del Congreso de Viena (1815).", "Historia National Geographic: El Congreso de Viena."]
+  },
+  {
+    tiempo: 135,
+    titulo: "La Revolución Industrial",
+    pregunta: "¿Qué cambió con la industrialización y a qué costo?",
+    respuesta: "Cambió la forma de producir y de vivir: nacieron las fábricas, las ciudades industriales y la clase obrera, pero con jornadas largas, trabajo infantil y hacinamiento.",
+    contexto: "Gran Bretaña fue el primer país industrializado. Esa presión social no se resolvía con diplomacia.",
+    fuentes: ["Encyclopædia Britannica: Industrial Revolution.", "Hobsbawm, E. (2009). La era de la revolución, 1789-1848."]
+  },
+  {
+    tiempo: 225,
+    titulo: "Utopías sociales",
+    pregunta: "¿Qué sociedades imaginaron quienes querían algo distinto?",
+    respuesta: "Owen, Saint-Simon y Fourier propusieron comunidades y sistemas más justos. Marx y Engels los llamaron utópicos, pero pusieron la cuestión social en el debate público.",
+    contexto: "Owen reformó la fábrica de New Lanark; Fourier imaginó los falansterios; Saint-Simon confiaba en la ciencia y la industria.",
+    fuentes: ["Engels, F. (1880). Del socialismo utópico al socialismo científico.", "Filosofía.net: El socialismo utópico."]
+  },
+  {
+    tiempo: 300,
+    titulo: "Romanticismo y nacionalismo",
+    pregunta: "¿Cómo nacieron las naciones modernas?",
+    respuesta: "El Romanticismo valoró la lengua, el folclore y la historia de cada pueblo. De ahí surgió la idea de que cada pueblo debía tener su propio Estado, lo que desafió al orden de Viena.",
+    contexto: "Ejemplos: la independencia de Grecia, la de Bélgica y las unificaciones de Italia (1861) y Alemania (1871).",
+    fuentes: ["Berlin, I. (2000). Las raíces del romanticismo.", "Nueva Escuela Mexicana: Nacionalismo y Romanticismo en el siglo XIX."]
+  },
+  {
+    tiempo: 390,
+    titulo: "Cierre",
+    pregunta: "¿Cómo se conectan estas fuerzas?",
+    respuesta: "El mundo posnapoleónico no volvió al pasado: entre fábricas, ideas y naciones, Europa entró en una era de cambio permanente.",
+    contexto: "Las revoluciones de 1848 fueron reprimidas, pero dejaron instalados los derechos laborales, la participación ciudadana y el Estado-nación.",
+    fuentes: ["Osterhammel, J. (2015). La transformación del mundo."]
+  }
+];
+
+var videoPrincipal = document.getElementById("video-principal");
+var capituloActual = -1;
+
+function mostrarCapitulo(n) {
+  var c = capitulos[n];
+  capituloActual = n;
+
+  var botones = document.getElementById("botones-capitulos").getElementsByTagName("button");
+  for (var j = 0; j < botones.length; j++) {
+    botones[j].className = (j == n) ? "activo" : "";
+  }
+
+  document.getElementById("cap-titulo").innerText = c.titulo;
+  document.getElementById("cap-pregunta").innerHTML = "<b>" + c.pregunta + "</b>";
+  document.getElementById("cap-respuesta").innerText = c.respuesta;
+  document.getElementById("cap-contexto").innerText = c.contexto;
+
+  var lista = document.getElementById("cap-fuentes");
+  lista.innerHTML = "";
+  for (var i = 0; i < c.fuentes.length; i++) {
+    var li = document.createElement("li");
+    li.innerText = c.fuentes[i];
+    lista.appendChild(li);
+  }
+}
+
+var contCapitulos = document.getElementById("botones-capitulos");
+for (var i = 0; i < capitulos.length; i++) {
+  var bcap = document.createElement("button");
+  bcap.innerText = capitulos[i].titulo;
+  bcap.onclick = (function (n) {
+    return function () {
+      mostrarCapitulo(n);
+      if (videoPrincipal.readyState > 0) {
+        videoPrincipal.currentTime = capitulos[n].tiempo;
+        videoPrincipal.play();
+      }
+    };
+  })(i);
+  contCapitulos.appendChild(bcap);
+}
+mostrarCapitulo(0);
+
+videoPrincipal.ontimeupdate = function () {
+  var nuevo = 0;
+  for (var i = 0; i < capitulos.length; i++) {
+    if (videoPrincipal.currentTime >= capitulos[i].tiempo) {
+      nuevo = i;
+    }
+  }
+  if (nuevo != capituloActual) {
+    mostrarCapitulo(nuevo);
   }
 };
 </script>
