@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Después de Napoleón</title>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<header class="menu">
+  <span class="logo">Historia Conectada</span>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#contexto">Contexto histórico</a>
+    <a href="#red-seccion">Red de relaciones</a>
+    <a href="#video">Video</a>
+    <a href="#explorador">Explorador</a>
+    <a href="#conclusion">Conclusiones</a>
+    <a href="#fuentes">Fuentes</a>
+  </nav>
+</header>
+
+<div class="portada" id="inicio">
+  <div>
+    <small>Documental interactivo · Siglo XIX</small>
+    <h1>Después de Napoleón: cómo Europa no volvió al pasado</h1>
+    <p class="pregunta"><b>Pregunta central:</b> ¿Cómo cambiaron la Revolución Industrial, las utopías sociales, el Romanticismo y el nacionalismo el orden político que dejó la caída de Napoleón?</p>
+    <p class="integrantes"><b>Integrantes:</b> [Nombre 1], [Nombre 2], [Nombre 3] y [Nombre 4] · Universidad Católica San Pablo</p>
+    <a class="boton" href="#contexto">Empezar</a>
+  </div>
+</div>
+
+<main>
+
+  <section id="contexto">
+    <h2>Contexto histórico</h2>
+    <p>En 1815 las potencias europeas derrotaron a Napoleón y se sentaron a reconstruir el continente como si la Revolución Francesa no hubiera ocurrido. Pero las fábricas, las ideas sociales, la sensibilidad romántica y el deseo de ser nación ya estaban en marcha.</p>
+    <p><b>El problema que estudiamos:</b> el período va de 1815 a 1871, y nos preguntamos por qué el intento de restaurar el orden anterior fracasó.</p>
+    <p>Primero verás una red que conecta causas, actores, acontecimientos y consecuencias. Después, una entrevista en video con sus capítulos, el contexto y las fuentes de cada tramo, y un explorador para consultar por tu cuenta.</p>
+  </section>
+
+  <section id="red-seccion">
+    <h2>Red de relaciones históricas</h2>
+    <p>Toca un elemento para ver con qué se conecta y cómo se explica.</p>
+    <div class="red-caja">
+      <svg id="red" viewBox="0 0 720 400"></svg>
+    </div>
+    <div class="caja">
+      <h3 id="red-titulo">Selecciona un elemento</h3>
+      <p id="red-texto">Cada columna es un paso de la explicación: causas, actores, acontecimientos y consecuencias.</p>
+    </div>
+  </section>
+
+  <section id="video">
+    <h2>Entrevista: ¿cómo cambió Europa después de Napoleón?</h2>
+    <p class="quien">Conversan [Nombre 1], entrevistador/a, y [Nombre 2], historiador/a invitado/a</p>
+
+    <div class="clip">
+      <video id="video-principal" controls preload="metadata"><source src="video/entrevista.mp4" type="video/mp4"></video>
+      <div class="aviso"><b>Video de la entrevista</b><br>Guarda tu video como video/entrevista.mp4</div>
+      <p>Entrevista completa · aprox. 7 minutos</p>
+    </div>
+
+    <div class="botones" id="botones-capitulos"></div>
+
+    <div class="caja">
+      <h3 id="cap-titulo"></h3>
+      <p id="cap-pregunta"></p>
+      <p id="cap-respuesta"></p>
+    </div>
+
+    <div class="contexto">
+      <h3>Contexto</h3>
+      <p id="cap-contexto"></p>
+    </div>
+
+    <div class="fuentes-capitulo"><b>Fuentes de este tramo</b>
+      <ul id="cap-fuentes"></ul>
+    </div>
+  </section>
+
+  <section id="explorador">
+    <h2>Explorador cronológico y comparador de corrientes</h2>
+    <p>Filtra los acontecimientos por tema o elige una corriente para comparar sus ideas.</p>
+
+    <div class="caja">
+      <h3>1. Línea de tiempo (1814-1848)</h3>
+      <div class="botones" id="filtros-tiempo"></div>
+      <ul class="eventos" id="lista-eventos"></ul>
+    </div>
+
+    <div class="caja">
+      <h3>2. Comparador de corrientes</h3>
+      <div class="botones" id="botones-corrientes"></div>
+      <dl class="comparar" id="datos-corriente"></dl>
+    </div>
+  </section>
+
+</main>
+
+<div class="conclusion" id="conclusion">
+  <div>
+    <h2>Conclusiones: el mundo posnapoleónico no volvió al pasado</h2>
+    <p><i>Respuesta del equipo a la pregunta central:</i> el orden de 1815 fue desafiado desde tres frentes a la vez.</p>
+    <ol>
+      <li><b>El orden frente a los pueblos.</b> La diplomacia de Viena evitó grandes guerras entre potencias, pero dejó de lado los deseos de libertad y de identidad de muchos pueblos.</li>
+      <li><b>Tres respuestas a una doble crisis.</b> Frente a las injusticias de la industrialización surgieron las utopías sociales; frente a la frialdad de la máquina, el Romanticismo; y frente a las fronteras de Viena, el nacionalismo.</li>
+      <li><b>Un legado que llega hasta hoy.</b> Aunque las revoluciones de 1848 fueron reprimidas, dejaron instalados los derechos laborales, la participación ciudadana y el Estado-nación.</li>
+    </ol>
+    <p>Entre fábricas, ideas y naciones, Europa entró en una era de cambio permanente.</p>
+  </div>
+</div>
+
+<div class="fuentes-final" id="fuentes">
+  <h2>Fuentes</h2>
+  <p>Libros, documentos históricos y recursos en línea consultados para el proyecto.</p>
+  <input type="text" id="buscador" placeholder="Buscar una fuente...">
+  <div class="botones" id="filtros-fuentes"></div>
+  <p id="contador-fuentes"></p>
+  <ul id="lista-fuentes"></ul>
+</div>
+
+<button id="subir" title="Volver arriba">↑</button>
+
+<footer>Proyecto de Historia · UCSP · Video y textos originales del equipo</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
